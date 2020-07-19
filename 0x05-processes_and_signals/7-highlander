@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#diplay one of two sentences
+trap "echo I am invincible!!!" SIGTERM
+x=15
+while (( x >= 0 ))
+do
+    echo "To infinity and beyond"
+    sleep 2
+done

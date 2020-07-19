@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#display a sentece and put sleep 2 between iterations
+x=15
+while (( x >= 0 ))
+do
+    echo "To infinity and beyond"
+    sleep 2
+done

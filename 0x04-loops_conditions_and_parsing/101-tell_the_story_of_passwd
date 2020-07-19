@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#display content of etc/passwd in the form of a story
+while IFS=: read -r user shadow uid guid geco home sh
+do 
+    echo "The user $user is part of the $guid gang, lives in $home and rides $sh. $uid's place is protected by the passcode $shadow, more info about the user here: $geco"
+done < /etc/passwd

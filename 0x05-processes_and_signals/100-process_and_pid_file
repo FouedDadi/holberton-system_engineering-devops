@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#too long to be explained
+sudo touch /var/run/holbertonscript.pid
+sudo "echo $BASHPID >> /var/run/holbertonscript.pid"
+
+trap '"echo I hate the kill command"; sudo rm /var/run/holbertonscript.pid; exit' SIGTERM
+
+trap "echo Y U no love me?!" SIGINT
+
+trap sudo rm /var/run/holbertonscript.pid; exit SIGQUIT
+
+x=15
+while (( x >= 0 ))
+do
+    echo "To infinity and beyond"
+    sleep 2
+done

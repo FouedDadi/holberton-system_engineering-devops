@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# displays holberton school 10 times using for
+for ((i=0;i<=9;i++));
+do
+    echo "Holberton School"
+done

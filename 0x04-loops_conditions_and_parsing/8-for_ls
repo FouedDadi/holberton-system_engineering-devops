@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# displays the name part of the content in the current directory
+l=$(ls)
+for x in $l; do echo "$x" |cut -d '-' -f 2-; done

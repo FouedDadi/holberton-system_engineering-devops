@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#display informations from etc/passwd (username id and home directory)
+export shadow
+export guid
+export sh
+export geco
+while IFS=: read -r user shadow uid guid geco home sh
+do 
+    echo "$user:$uid:$home"
+done < /etc/passwd
