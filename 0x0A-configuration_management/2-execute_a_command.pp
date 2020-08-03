@@ -1,3 +1,4 @@
-# manifest that kills a process named killmenow
+# kill a process using pkill
 exec { 'pkill killmenow':
+  provider => 'shell',
 }
