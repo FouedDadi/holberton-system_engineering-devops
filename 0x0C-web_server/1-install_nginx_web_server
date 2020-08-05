@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# installing nginx | put a text inside file of nginx | start nginx
-sudo apt-get update
+# installing nginx
+# put a text inside file of nginx
+# start nginx
+sudo apt-get -y update
 sudo apt-get -y install nginx
 echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 sudo service nginx start
