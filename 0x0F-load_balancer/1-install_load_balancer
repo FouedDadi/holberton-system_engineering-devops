@@ -5,7 +5,7 @@
 # redirection
 sudo apt-get -y update
 sudo apt-get install -y haproxy=1.5\*
-sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.bak
+sudo cp /etc/haproxy/haproxy.cfg
 sudo sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
 cat >> /etc/haproxy/haproxy.cfg << EOF
 frontend firstbalance
@@ -14,7 +14,9 @@ frontend firstbalance
         default_backend webservers
 backend webservers
         balance roundrobin
-        server 1430-web-02-34.73.23.14:80 check
-        server 1430-web-01-34.74.192.102:80 check
+        server webserver1 1430-web-02-34.73.23.14:80
+        server webserver2 1430-web-02-34.73.23.14:80
+        server webserver1 1430-web-02-34.73.23.14:80 check
+        server webserver2 1430-web-01-34.74.192.102:80 check
 EOF
 sudo service haproxy restart
