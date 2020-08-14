@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# installing nginx
+# put a text inside file of nginx
+# start nginx
+# redirection
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+head="\add_head X-Served-By "$HOSTNAME";"
+sudo sed -i "\$head" /etc/nginx/sites-available/default
+sudo service nginx restart
