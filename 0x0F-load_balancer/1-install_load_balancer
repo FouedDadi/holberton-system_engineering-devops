@@ -14,8 +14,8 @@ frontend firstbalance
         default_backend webservers
 backend webservers
         balance roundrobin
-        server webserver1 1430-web-02-34.73.23.14:80 check
-        server webserver2 1430-web-01-34.74.192.102:80 check
+        server 1430-web-02-34.73.23.14:80 check
+        server 1430-web-01-34.74.192.102:80 check
         option httpchk
 EOF
-sudo service haproxy start
+sudo service haproxy restart
