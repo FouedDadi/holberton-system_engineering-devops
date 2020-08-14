@@ -6,6 +6,6 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-head="\t\add_head X-Served-By "$HOSTNAME";"
-sudo sed -i "$head" /etc/nginx/sites-available/default
+sudo sed -i "11i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
+echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 sudo service nginx restart
