@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# installing nginx
+# put a text inside file of nginx
+# start nginx
+# redirection
+sudo apt-get -y update
+sudo apt-get install -y haproxy=1.5\*
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.bak
+sudo sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
+cat >> /etc/haproxy/haproxy.cfg << EOF
+frontend firstbalance
+        bind *:80
+        option forwardfor
+        default_backend webservers
+backend webservers
+        balance roundrobin
+        server webserver1 1430-web-02-34.73.23.14:80 check
+        server webserver2 1430-web-01-34.74.192.102:80 check
+        option httpchk
+EOF
+sudo service haproxy start
