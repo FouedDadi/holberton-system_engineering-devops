@@ -16,6 +16,5 @@ backend webservers
         balance roundrobin
         server 1430-web-02-34.73.23.14:80 check
         server 1430-web-01-34.74.192.102:80 check
-        option httpchk
 EOF
 sudo service haproxy restart
