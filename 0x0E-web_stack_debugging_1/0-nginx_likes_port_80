@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 # change nginx configuration so it listen to port 80
-sed  -i 's/listen 80;listen 8080 ssl;/g' /etc/nginx/sites-enabled/default
+sudo nginx stop
+sudo pkill nginx
+sed  -i 's/listen 80;listen 8080/g' /etc/nginx/sites-enabled/default
 sudo service nginx restart
