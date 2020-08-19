@@ -45,7 +45,6 @@ frontend balance
     bind *:443 ssl crt /etc/ssl/certs/www.lyc4n.tech.pem
     reqadd X-Forwarded-Proto:\ https
     http-request redirect scheme https unless { ssl_fc }
-    acl letsencrypt-acl path_beg /.well-known/acme-challenge/
     use_backend encrypt if encrypt-acl
     default_backend webservers
 
@@ -55,4 +54,4 @@ backend webservers
         server webserver2 34.73.23.14:80 check
 
 backend encrypt
-        server letsencrypt 127.0.0.1:54321
+        server letsencrypt
