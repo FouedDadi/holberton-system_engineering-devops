@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# bash script that fix a container so that Nginx as the nginx
+pkill apache2
+sudo chown nginx:nginx /etc/nginx/nginx.conf
+sed  -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+sudo chmod 700 /etc/nginx/nginx.conf
+sudo -u service nginx restart
