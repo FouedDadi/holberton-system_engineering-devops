@@ -7,6 +7,7 @@ global
         user haproxy
         group haproxy
         daemon
+
         maxconn 2048
         tune.ssl.default-dh-param 2048
 
@@ -44,7 +45,7 @@ frontend www-http
         default_backend www-backend
 
 frontend www-https
-        bind haproxy_www_public_IP:443 ssl crt /etc/haproxy/certs/www.lyc4n.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.lyc4n.tech.pem
         reqadd X-Forwarded-Proto:\ https
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
