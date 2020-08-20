@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # bash script that fix a container so that Nginx runs as nginx
 # nginx listens to all ip's on port 8080
+pkill nginx
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 700 /etc/nginx/nginx.conf
+sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
 pkill apache2
-sudo chown nginx:nginx /etc/nginx/nginx.conf
-sudo chmod 700 /etc/nginx/nginx.conf
-sed  -i 's/8080/80/g' /etc/nginx/sites-available/default
-sudo -u nginx service nginx restart
+sudo -u nginx service nginx start
