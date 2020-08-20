@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # bash script that fix a container so that Nginx as the nginx
-pkill nginx
 pkill apache2
 sudo chown nginx:nginx /etc/nginx/nginx.conf
 sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
