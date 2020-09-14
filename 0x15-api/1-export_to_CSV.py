@@ -14,10 +14,10 @@ if __name__ == '__main__':
                         format(id)).json()
     quest = requests.get('https://jsonplaceholder.typicode.com/todos',
                          params={'userId': id}).json()
-    name = resp.get('name')
+    name = resp.get('username')
     with open('{}.csv'.format(id), "w") as csv_file:
         writing = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
         for to in quest:
             Title = to.get('title')
             completion = to.get('completed')
-            writing.writerow([int(id), name, completion, Title])
+            writing.writerow([id, name, completion, Title])
