@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-python script that gets data from api
+python script that saves data to csv file
 """
 
 import csv
