@@ -20,4 +20,4 @@ if __name__ == '__main__':
         for to in quest:
             Title = to.get('title')
             completion = to.get('completed')
-            writing.writerow([(id), name, completion, Title])
+            writing.writerow([int(id), name, completion, Title])
