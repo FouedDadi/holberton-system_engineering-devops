@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-[summary]
+python script that gets data from api
 """
 
 import requests
