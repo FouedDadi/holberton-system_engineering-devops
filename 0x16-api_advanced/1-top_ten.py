@@ -13,9 +13,10 @@ def top_ten(subreddit):
     user = {'User-Agent': 'lycan619'}
     request = requests.get('https://www.reddit.com/r/{}/hot.json'
                            .format(subreddit), headers=user).json()
+    if request:
+        child = request.get('data').get('children')
+        for data in child[:10]:
+            title = data.get('data').get('title')
+            print(title)
     if request is None:
         print('None')
-    child = request.get('data').get('children')
-    for data in child[:10]:
-        title = data.get('data').get('title')
-        print(title)
