@@ -15,6 +15,7 @@ def top_ten(subreddit):
                            .format(subreddit), headers=user).json()
     if request.get('error') == 404:
         print('None')
+        return
     child = request.get('data').get('children')
     for data in child[:10]:
         title = data.get('data').get('title')
