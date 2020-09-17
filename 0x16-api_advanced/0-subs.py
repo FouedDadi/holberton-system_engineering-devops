@@ -13,8 +13,9 @@ def number_of_subscribers(subreddit):
     user = {'User-Agent': 'lycan619'}
     request = requests.get('https://www.reddit.com/r/{}/about.json'
                            .format(subreddit), headers=user).json()
-    if request:
+    if request is None:
+        return 0
+    else:
         dt = request.get('data')
         if dt:
             return dt.get('subscribers')
-    return 0
