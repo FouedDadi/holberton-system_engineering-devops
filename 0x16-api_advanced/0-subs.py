@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """
-[summary]
+get the number of subscribers for a specific subreddit
 """
 
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """[summary]
+    """
+    function to get subscribers
     """
     user = {'User-Agent': 'lycan619'}
     request = requests.get('https://www.reddit.com/r/{}/about.json'
