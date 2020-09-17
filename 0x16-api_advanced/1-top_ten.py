@@ -15,8 +15,9 @@ def top_ten(subreddit):
                            .format(subreddit), headers=user).json()
     if request:
         child = request.get('data').get('children')
-        for data in child[:10]:
-            title = data.get('data').get('title')
-            print(title)
-    if request is None:
+        if child:
+            for data in child[:10]:
+                title = data.get('data').get('title')
+                print(title)
+    else:
         print('None')
