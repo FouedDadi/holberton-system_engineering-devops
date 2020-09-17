@@ -11,9 +11,9 @@ def number_of_subscribers(subreddit):
     """
     user = {'User-Agent': 'lycan619'}
     request = requests.get('https://www.reddit.com/r/{}/about.json'
-                           .format(subreddit), headers=user)
-    if request.status_code == 404:
-        return 0
-    request = request.json()
-    dt = request.get('data')
-    return dt.get('subscribers')
+                           .format(subreddit), headers=user).json()
+    if request:
+        dt = request.get('data')
+        if dt:
+            return dt.get('subscribers')
+    return 0
