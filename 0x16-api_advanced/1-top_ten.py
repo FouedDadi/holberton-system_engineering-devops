@@ -13,7 +13,7 @@ def top_ten(subreddit):
     user = {'User-Agent': 'lycan619'}
     request = requests.get('https://www.reddit.com/r/{}/hot.json'
                            .format(subreddit), headers=user).json()
-    if request is None:
+    if request.get('error') == 404:
         print('None')
         return
     child = request.get('data').get('children')
