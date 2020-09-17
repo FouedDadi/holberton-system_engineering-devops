@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-get the number of subscribers for a specific subreddit
+get the hot titles for a specific subreddit
 """
 
 import requests
@@ -8,7 +8,7 @@ import requests
 
 def top_ten(subreddit):
     """
-    function to get subscribers
+    function to get hot titles
     """
     user = {'User-Agent': 'lycan619'}
     request = requests.get('https://www.reddit.com/r/{}/about.json'
